@@ -46,6 +46,25 @@ int count_words(char *str){
   return word_count;
 }
 
+int str_length(char *str){
+  int count;
+  for(count=0; *str != '\0'; str++){
+    count++;
+  }
+  return count;
+}
+
+char *copy_str(char *inStr, short len){
+  char *new_string = (char*)malloc(sizeof(char)*len+1);
+  int i=0;
+  while( i < len){
+    new_string = inStr;
+    new_string++;
+    inStr++;
+    i++;
+  }
+  return new_string;
+}
 
 
 
