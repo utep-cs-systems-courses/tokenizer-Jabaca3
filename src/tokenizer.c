@@ -37,7 +37,13 @@ char *word_terminator(char *word){
 int count_words(char *str){
   int word_count =0;
   while(*str != '\0'){
+    str = word_start(str);
+    if(non_space_char(*str)){
+    word_count++;
+    }
+    str = word_terminator(str);
   }
+  return word_count;
 }
 
 

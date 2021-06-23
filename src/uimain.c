@@ -13,14 +13,15 @@ int main(){
   //printf("%d\n",j);
 
   //testing function word start (WORKS)
-  char* start = word_start(user_input);
+  //char* start = word_start(user_input);
   //printf("\n%s", "Word start running: \n");
   //printf("%c\n", *start);
   
   //testing function word terminator (Works)
-  char* end = word_terminator(start);
-  printf("%c\n", *end);
+  //char* end = word_terminator(start);
+  //printf("%c\n", *end);
     
   //testing count words function
+  printf("\n%s", "Count words Running: \n");
   printf("%d\n", count_words(user_input));
 }
