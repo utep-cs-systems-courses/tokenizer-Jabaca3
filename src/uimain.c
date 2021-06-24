@@ -7,6 +7,7 @@ int main(){
   printf("\n$ ");
   char user_input[100];
   fgets(user_input, 100, stdin);
+  printf("%s", user_input);
 
   // testing function space char / non space char (WORKS)
   //int j = space_char(*user_input);
@@ -25,15 +26,15 @@ int main(){
   //printf("\n%s", "Count words Running: \n");
   //printf("%d\n", count_words(user_input));
 
-  //testing string length this includes zero terminator
+  //testing string length this includes zero terminator (Works)
   int len = str_length(user_input);
   printf("\n%s", "String length Running: \n");
   printf("%d\n", len);
 
   //testing copy string
-  //char new_string = copy_str(user, len);
-  //printf("\n%s", "Copy String: \n");
-  //printf("%s\n", new_string);
+  char *new_string = copy_str(user_input, len);
+  printf("\n%s", "Copy String: \n");
+  printf("%s\n", new_string);
 
 
 

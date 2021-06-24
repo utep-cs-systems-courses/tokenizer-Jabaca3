@@ -34,6 +34,7 @@ char *word_terminator(char *word){
   return word;
 }
 
+//Counts the words in the array
 int count_words(char *str){
   int word_count =0;
   while(*str != '\0'){
@@ -46,6 +47,7 @@ int count_words(char *str){
   return word_count;
 }
 
+//returns the length of the string
 int str_length(char *str){
   int count;
   for(count=0; *str != '\0'; str++){
@@ -53,17 +55,27 @@ int str_length(char *str){
   }
   return count;
 }
-
+//Copys the string over to a new memory allocation
 char *copy_str(char *inStr, short len){
-  char *new_string = (char*)malloc(sizeof(char)*len+1);
-  int i=0;
-  while( i < len){
-    new_string = inStr;
-    new_string++;
+  char *str_copy= (char*)malloc(sizeof(char)*len);
+  while (*inStr != '\0'){
+    *str_copy = *inStr;
+    str_copy++;
     inStr++;
-    i++;
   }
-  return new_string;
+  str_copy-=len;
+  return str_copy;
+}
+
+
+char **tokenize(char* str){
+
+}
+void print_tokens(**tokens){
+
+}
+void free_tokens(char **tokens){
+
 }
 
 
