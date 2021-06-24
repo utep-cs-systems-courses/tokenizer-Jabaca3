@@ -27,17 +27,17 @@ int main(){
   //printf("%d\n", count_words(user_input));
 
   //testing string length this includes zero terminator (Works)
-  int len = str_length(user_input);
+  //int len = str_length(user_input);
   //printf("\n%s", "String length Running: \n");
   //printf("%d\n", len);
 
   //testing copy string (Works FOR SURE)
-  char *new_string = copy_str(user_input, len);
-  printf("\n%s", "Copy String: \n");
-  printf("%s\n", new_string);
+  // char *new_string = copy_str(user_input, len);
+  //printf("\n%s", "Copy String: \n");
+  //printf("%s\n", new_string);
 
   //testing tokenizer and print tokens
   char **tokens = tokenize(user_input);
-  //print_tokens(tokens);
+  print_tokens(tokens);
   
 }
