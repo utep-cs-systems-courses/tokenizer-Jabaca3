@@ -7,8 +7,8 @@ int main(){
   printf("\n$ ");
   char user_input[100];
   fgets(user_input, 100, stdin);
-  printf("%s", user_input);
-
+  printf("%s\n", user_input);
+  
   // testing function space char / non space char (WORKS)
   //int j = space_char(*user_input);
   //printf("%d\n",j);
@@ -28,16 +28,16 @@ int main(){
 
   //testing string length this includes zero terminator (Works)
   int len = str_length(user_input);
-  printf("\n%s", "String length Running: \n");
-  printf("%d\n", len);
+  //printf("\n%s", "String length Running: \n");
+  //printf("%d\n", len);
 
-  //testing copy string
+  //testing copy string (Works FOR SURE)
   char *new_string = copy_str(user_input, len);
   printf("\n%s", "Copy String: \n");
   printf("%s\n", new_string);
 
-
-
-
+  //testing tokenizer and print tokens
+  char **tokens = tokenize(user_input);
+  //print_tokens(tokens);
   
 }

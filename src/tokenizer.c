@@ -55,25 +55,62 @@ int str_length(char *str){
   }
   return count;
 }
-//Copys the string over to a new memory allocation
+
+//Copies the string over to a new memory allocation
 char *copy_str(char *inStr, short len){
   char *str_copy= (char*)malloc(sizeof(char)*len);
-  while (*inStr != '\0'){
+  int i=0;
+  while (i < len){
     *str_copy = *inStr;
     str_copy++;
     inStr++;
+    i++;
   }
   str_copy-=len;
   return str_copy;
 }
 
 
+//TODO incrament tokens
 char **tokenize(char* str){
+  int word_size=0;
+  char *word_end;
+  char *word_begin;
+  int total_words=count_words(str);
+  char **tokens = (char**)malloc(sizeof(char*)*total_words);
+  char *pointer = word_start(str);
+  int i=0;
+  
+  while(i <= total_words){
+  word_begin = pointer;
+  //printf("\n%c", *word_begin);
+  
+  word_end = word_terminator(word_begin);
+  pointer = word_end;
+  //printf("\n%c", *word_end);
+  
+  word_size = word_end - word_begin;
+  //printf("\n%i", word_size);
+  
+  *tokens = copy_str(word_begin, word_size);
+  printf("\n%s", *tokens);
+  
 
+  pointer = word_start(word_end);
+  i++;
+  
+  }
+   return tokens;
 }
-void print_tokens(**tokens){
+  
 
+void print_tokens(char **tokens){
+  while(*tokens){
+    printf("\n%s", *tokens);
+    *tokens++;
+  }
 }
+
 void free_tokens(char **tokens){
 
 }
