@@ -101,13 +101,16 @@ char **tokenize(char* str){
 
 void print_tokens(char **tokens){
   while(*tokens){
-   printf("\n%s", *tokens);
-   tokens++;
+    printf("\n%s", *tokens);
+    tokens++;
   }
 }
 
 void free_tokens(char **tokens){
-
+  while(*tokens){
+    free(*tokens);
+    tokens++;
+  }
 }
 
 

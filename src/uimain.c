@@ -4,40 +4,44 @@
 #include "history.h"
 
 int main(){
+  while(1){
+    
   printf("\n$ ");
   char user_input[100];
+  List *history = init_history();
   fgets(user_input, 100, stdin);
   printf("%s\n", user_input);
-  
-  // testing function space char / non space char (WORKS)
-  //int j = space_char(*user_input);
-  //printf("%d\n",j);
 
-  //testing function word start (WORKS)
-  //char* start = word_start(user_input);
-  //printf("\n%s", "Word start running: \n");
-  //printf("%c\n", *start);
-  
-  //testing function word terminator (Works)
-  //char* end = word_terminator(start);
-  //printf("%c\n", *end);
+  //Checking user input for history request
+  if(user_input[0] == 33 && (user_input[1] > 48 && user_input[1] < 58)){
     
-  //testing count words function (Works)
-  //printf("\n%s", "Count words Running: \n");
-  //printf("%d\n", count_words(user_input));
+    //Recalling history
+    printf("%s\n", "--------recalling history!------------");
+    int num = atoi(user_input+1);
+    char* token = get_history(history, num);
+    printf("%s%s\n","$ ", token);
 
-  //testing string length this includes zero terminator (Works)
-  //int len = str_length(user_input);
-  //printf("\n%s", "String length Running: \n");
-  //printf("%d\n", len);
-
-  //testing copy string (Works FOR SURE)
-  // char *new_string = copy_str(user_input, len);
-  //printf("\n%s", "Copy String: \n");
-  //printf("%s\n", new_string);
-
-  //testing tokenizer and print tokens
-  char **tokens = tokenize(user_input);
-  print_tokens(tokens);
+    //Printing tokens from input
+    char** tokenized = tokenize(token);
+    print_tokens(tokenized);
+  }
   
+  else{
+    char **tokens= tokenize(user_input);
+    print_tokens(tokens);
+    printf("%s\n", "---------adding history!---------------");
+    char* copy = copy_str(user_input, str_length(user_input));
+    add_history(history, copy); //works
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
