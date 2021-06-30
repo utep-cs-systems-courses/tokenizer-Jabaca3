@@ -17,14 +17,10 @@ int main(){
       printf("%s\n", "--------recalling history!------------");
       int num = atoi(user_input+1);
       char* token = get_history(history, num);
-
+      
       // If token exist print it
       if(*token){
 	printf("%s%s\n","$ ", token);
-    }
-      // Doesnt exist print error:
-    else{
-      printf("%s\n", "Your token does not exist");
     }
   }
     // Print history with !p
