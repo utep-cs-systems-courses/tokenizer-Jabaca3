@@ -5,43 +5,48 @@
 
 List *init_history(){
   List *user_history = (List*) malloc(sizeof(Item)*100);
+  return user_history;
 }
 
 void add_history(List *list, char *str){
   Item *node = list->root;
-  int id = 1;
   
   //If we are barly starting history
-  if (node == NULL) {
-    list->root = (Item*) malloc(sizeof (Item));
-    list->root->id = id;
-    list->root->str = str;
-    list->root->next = NULL;
-  }
-  
-  //If history is already started
-  else {
-    while(node->next != NULL) {
-      node = node->next;
-      id++;
+    if (node == NULL) {
+      node = (Item*) malloc(sizeof (Item));
+      node->id = 1;
+      node->str = str;
+      node->next = NULL;
+      list->root = node;
+      printf("%s",node->str);
+      printf("%i\n",node->id);
     }
-    node->next = (Item*) malloc(sizeof (Item));
-    node->next->id = id++;
-    node->next->str = str;
-    node->next->next = NULL;
+    
+    else {
+      int id=2;
+      while(node->next != NULL) {
+	node = node->next;
+	id++;
+      }
+      node->next = (Item*) malloc(sizeof (Item));
+      node->next->id = id;
+      node->next->str = str;
+      node->next->next = NULL;
+      printf("%s\n",node->next->str);
+      printf("%i\n",node->next->id);
+    }
   }
-}
 
 char *get_history(List *list, int id){
   Item *node = list->root;
 
-  while(node != NULL){
+  while( node != NULL){
     if(node->id == id){
       return node->str;
     }
     node = node->next;
   }
-  return "YOUR STRING NOT FOUND :(";
+  return "Error";
 }
 
 void print_history(List *list){
